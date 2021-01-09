@@ -1,0 +1,7 @@
+export const GET_GROCERIES_REQUEST = "GET_GROCERIES_REQUEST" as const;
+export const GET_GROCERIES_SUCCESS = "GET_GROCERIES_SUCCESS" as const;
+export const GET_GROCERIES_ERROR = "GET_GROCERIES_ERROR" as const;
+
+export const GET_GROCERY_REQUEST = "GET_GROCERY_REQUEST" as const;
+export const GET_GROCERY_SUCCESS = "GET_GROCERY_SUCCESS" as const;
+export const GET_GROCERY_ERROR = "GET_GROCERY_ERROR" as const;

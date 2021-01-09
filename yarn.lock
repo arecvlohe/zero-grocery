@@ -1148,6 +1148,16 @@
   resolved "https://registry.yarnpkg.com/@csstools/normalize.css/-/normalize.css-10.1.0.tgz#f0950bba18819512d42f7197e56c518aa491cf18"
   integrity sha512-ij4wRiunFfaJxjB0BdrYHIH8FxBJpOwNPhhAcunlmPdXudL1WQV1qoP9un6JsEBAgQH+7UXyyjh0g7jTxXK6tg==
 
+"@devexperts/remote-data-ts@^2.0.4":
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/@devexperts/remote-data-ts/-/remote-data-ts-2.0.4.tgz#2061f7807b29a133db6b15bd27d4aee203a088f6"
+  integrity sha512-POPixfBKKfOCPomIw2m73sawJRZQP6pUOyFw5S0fD9BEfrRlc/2ocy39kvKozbL53//VGRQJenVpnt9NqAg0ow==
+  dependencies:
+    fp-ts "^2.0.0"
+    io-ts "^2.0.0"
+    io-ts-types "^0.5.7"
+    tslib "^1.9.3"
+
 "@eslint/eslintrc@^0.2.1":
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/@eslint/eslintrc/-/eslintrc-0.2.1.tgz#f72069c330461a06684d119384435e12a5d76e3c"
@@ -5122,6 +5132,11 @@ forwarded@~0.1.2:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
 
+fp-ts@^2.0.0, fp-ts@^2.9.3:
+  version "2.9.3"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.9.3.tgz#419b9103018ddf7c785acf2b3fecb2662afab5af"
+  integrity sha512-NjzcHYgigcbPQ6yJ52zwgsVDwKz3vwy9sjbxyzcvfXQm+j1BGeOPRuzLKEwsLyE4Xut6gG1FXJtsU9/gUB7tXg==
+
 fragment-cache@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/fragment-cache/-/fragment-cache-0.2.1.tgz#4290fad27f13e89be7f33799c6bc5a0abfff0d19"
@@ -5816,6 +5831,16 @@ internal-slot@^1.0.2:
     es-abstract "^1.17.0-next.1"
     has "^1.0.3"
     side-channel "^1.0.2"
+
+io-ts-types@^0.5.7:
+  version "0.5.12"
+  resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.5.12.tgz#270487f6e0adfe0a597ca14e50fbab287e4bb266"
+  integrity sha512-8IC96BJBTMeHFIikM3Mh5poyl2NA6pgF1ncWBktrpS1xfCdoRZQeSWPDcUaiR8T8jYWfAYOt/KEcIsw2e1fufw==
+
+io-ts@^2.0.0:
+  version "2.2.13"
+  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.2.13.tgz#e04016685e863dd5cffb2b5262c5c9c74432dfda"
+  integrity sha512-BYJgE/BanovJKDvCnAkrr7f3gTucSyk+Sr5VtpouBO1/YfBKUyIn2z1ODG8LEF+1D4sjKZ3Bd/A5/v8JrJe5UQ==
 
 ip-regex@^2.1.0:
   version "2.1.0"

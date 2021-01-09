@@ -1,9 +1,9 @@
 import * as RD from "@devexperts/remote-data-ts";
+import * as R from "fp-ts/lib/Record";
 import * as O from "fp-ts/lib/Option";
 import * as fns from "fp-ts/lib/function";
 import { pipe } from "fp-ts/lib/pipeable";
 
-import { definitions } from "../types/supabase";
 import { Actions } from "./actions.groceries";
 import {
   GET_GROCERIES_ERROR,
@@ -13,18 +13,10 @@ import {
   GET_GROCERY_REQUEST,
   GET_GROCERY_SUCCESS,
 } from "./constants.groceries";
-
-type Grocery = definitions["groceries"];
-type Groceries = Record<string, GroceryRD>;
-type GroceryRD = RD.RemoteData<string, Grocery>;
-type GroceriesRD = RD.RemoteData<string, Groceries>;
+import { Groceries, GroceriesRD, Grocery } from "./types.appState";
 
 export type GroceriesState = {
   entities: GroceriesRD;
-};
-
-const assertNever = (x: never): never => {
-  throw new Error("Non-exhaustive check for groceries actions");
 };
 
 export const groceriesReducer = (
@@ -43,12 +35,12 @@ export const groceriesReducer = (
         entities: RD.pending,
       };
     case GET_GROCERIES_SUCCESS: {
-      const groceries = action.payload.reduce(
+      const groceries: Groceries = action.payload.reduce(
         (acc: Groceries, curr: Grocery) => {
-          if (!acc[curr.id]) {
-            acc[curr.id] = RD.success(curr);
-          }
-          return acc;
+          return R.insertAt<string, RD.RemoteData<string, Grocery>>(
+            curr.id.toString(),
+            RD.success(curr)
+          )(acc);
         },
         {}
       );

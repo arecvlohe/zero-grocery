@@ -1,14 +1,12 @@
-import { definitions } from "../types/supabase";
 import { ADD_GROCERY_ITEM, REMOVE_GROCERY_ITEM } from "./constants.cart";
+import { Grocery } from "./types.appState";
 
 export type AddGroceryItem = {
   type: typeof ADD_GROCERY_ITEM;
-  payload: definitions["groceries"];
+  payload: Grocery;
 };
 
-export const addGroceryItem = (
-  payload: definitions["groceries"]
-): AddGroceryItem => ({
+export const addGroceryItem = (payload: Grocery): AddGroceryItem => ({
   type: ADD_GROCERY_ITEM,
   payload,
 });

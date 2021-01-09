@@ -1,4 +1,3 @@
-import { definitions } from "../types/supabase";
 import {
   GET_GROCERIES_ERROR,
   GET_GROCERIES_REQUEST,
@@ -7,6 +6,7 @@ import {
   GET_GROCERY_REQUEST,
   GET_GROCERY_SUCCESS,
 } from "./constants.groceries";
+import { Grocery } from "./types.appState";
 
 /**
  * All actions
@@ -30,7 +30,7 @@ export type GetGroceriesRequest = {
 
 export type GetGroceriesSuccess = {
   type: typeof GET_GROCERIES_SUCCESS;
-  payload: Array<definitions["groceries"]>;
+  payload: Array<Grocery>;
 };
 
 export type GetGroceriesError = {
@@ -42,7 +42,7 @@ export const getGroceriesRequest = (): GetGroceriesRequest => ({
 });
 
 export const getGroceriesSuccess = (
-  payload: Array<definitions["groceries"]>
+  payload: Array<Grocery>
 ): GetGroceriesSuccess => ({
   type: GET_GROCERIES_SUCCESS,
   payload,
@@ -63,7 +63,7 @@ export type GetGroceryRequest = {
 
 export type GetGrocerySuccess = {
   type: typeof GET_GROCERY_SUCCESS;
-  payload: definitions["groceries"];
+  payload: Grocery;
 };
 
 export type GetGroceryError = {
@@ -76,9 +76,7 @@ export const getGroceryRequest = (payload: string): GetGroceryRequest => ({
   payload,
 });
 
-export const getGrocerySuccess = (
-  payload: definitions["groceries"]
-): GetGrocerySuccess => ({
+export const getGrocerySuccess = (payload: Grocery): GetGrocerySuccess => ({
   type: GET_GROCERY_SUCCESS,
   payload,
 });

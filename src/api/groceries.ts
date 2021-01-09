@@ -1,7 +1,7 @@
 import { supabase } from "./supabase";
 import { definitions } from "../types/supabase";
 
-export const groceryApi = {
+export const groceriesApi = {
   getGroceries: async () => {
     return await supabase.from<definitions["groceries"]>("groceries").select();
   },
@@ -9,6 +9,7 @@ export const groceryApi = {
     return await supabase
       .from<definitions["groceries"]>("groceries")
       .select()
-      .eq("id", id);
+      .eq("id", id)
+      .single();
   },
 };

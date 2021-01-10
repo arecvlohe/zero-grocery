@@ -36,7 +36,11 @@ function Modal({
         {cart.map((item) => {
           return (
             <div className="grid grid-cols-3 pb-4 items-center border-b-2 border-gray-100 last:border-0">
-              <img src={item.data.imageUrl} className="img-sm rounded-md" />
+              <img
+                src={item.data.imageUrl}
+                className="img-sm rounded-md"
+                alt={item.data.name}
+              />
               <div className="capitalize">{item.data.name}</div>
               <div>
                 ${item.data.price} / {item.data.size} x {item.count}
@@ -148,6 +152,7 @@ function App() {
                             loading="lazy"
                             src={g.imageUrl}
                             className="img"
+                            alt={g.name}
                           />
                           <div className="p-2 flex justify-between">
                             <div className="flex flex-col">

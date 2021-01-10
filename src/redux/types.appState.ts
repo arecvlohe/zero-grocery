@@ -4,13 +4,17 @@ import { definitions } from "../types/supabase";
 import { GroceriesState } from "./reducer.groceries";
 import { CartState } from "./reducer.cart";
 
-export type AppState = {
+export interface AppState {
   groceries: GroceriesState;
   cart: CartState;
-};
+}
 
 export type Grocery = definitions["groceries"];
 export type Groceries = Record<string, GroceryRD>;
 export type GroceryRD = RD.RemoteData<string, Grocery>;
 export type GroceriesRD = RD.RemoteData<string, Groceries>;
-export type Cart = Record<string, Grocery>;
+export interface CartItem {
+  data: Grocery;
+  count: number;
+}
+export type Cart = Record<string, CartItem>;

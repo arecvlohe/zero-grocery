@@ -8,9 +8,17 @@ This project took me about 10-12 hours. I used some tools I was familiar with su
 
 ## Run Project
 
+You will need a `.env` file at the root of the project with the following credentials:
+
+```shell
+REACT_APP_SUPABASE_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxMDIwODY4NSwiZXhwIjoxOTI1Nzg0Njg1fQ.ity8KEchj2XO1BSFS3cJ5O3nXXv8yrlPVU3IzgZ2mzo
+REACT_APP_SUPABASE_URL=https://upqxtwmeojtrlqoyrtdo.supabase.co
+
+```
+
 To run the project, first install, then build it, then use [serve](https://www.npmjs.com/package/serve) to run it locally and on your network.
 
-```sh
+```shell
 yarn install
 
 yarn build
@@ -22,7 +30,7 @@ serve -s build
 
 To run tests, simply invoke the test script.
 
-```sh
+```shell
 yarn test
 ```
 
@@ -65,3 +73,4 @@ I created branches for almost all the features but would just merge the commits 
 - View individual grocery items
 - Remove grocery items from shopping cart
 - Update grocery items in shopping cart
+- Make a dark theme

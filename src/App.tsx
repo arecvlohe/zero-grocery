@@ -11,6 +11,7 @@ import { groceriesSelector } from "./redux/selectors.groceries";
 import { CartItem, Grocery } from "./redux/types.appState";
 import { addGroceryItem } from "./redux/actions.cart";
 import { cartSelector } from "./redux/selectors.cart";
+import { totalItems, totalPrice } from "./helpers.app";
 
 function Modal({
   state,
@@ -50,14 +51,7 @@ function Modal({
         })}
         <div className="flex justify-between">
           <div>Total </div>
-          <div>
-            $
-            {cart
-              .reduce((acc, curr) => {
-                return curr.count * JSON.parse(curr.data.price) + acc;
-              }, 0)
-              .toFixed(2)}
-          </div>
+          <div>${totalPrice(cart)}</div>
         </div>
       </div>
     </div>
@@ -110,7 +104,7 @@ function App() {
               className="bg-black text-white text-xs rounded-full p-1 absolute flex justify-center items-center"
               style={{ top: -10, left: 54, width: 20, height: 20 }}
             >
-              {Object.values(cart).reduce((acc, curr) => curr.count + acc, 0)}
+              {totalItems(cart)}
             </span>
           </button>
           <Modal state={modalState} cart={cartItems} />

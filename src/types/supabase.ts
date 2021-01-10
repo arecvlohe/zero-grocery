@@ -37,5 +37,9 @@ export interface definitions {
      * Add tags to help it show up in search better
      */
     tags?: string;
+    /**
+     * The image for the item
+     */
+    imageUrl?: string;
   };
 }

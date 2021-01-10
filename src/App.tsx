@@ -103,8 +103,8 @@ function App() {
           <button type="button" style={{ minWidth: 80 }} className="relative">
             Cart{" "}
             <span
-              className="bg-black text-white text-xs rounded-full p-1 absolute"
-              style={{ top: -12, left: 54 }}
+              className="bg-black text-white text-xs rounded-full p-1 absolute flex justify-center items-center"
+              style={{ top: -10, left: 54, width: 20, height: 20 }}
             >
               {Object.values(cart).reduce((acc, curr) => curr.count + acc, 0)}
             </span>

@@ -4,7 +4,6 @@ import * as O from "fp-ts/lib/Option";
 import * as R from "fp-ts/lib/Record";
 import { pipe } from "fp-ts/lib/pipeable";
 
-import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getGroceriesRequest } from "./redux/actions.groceries";
 import { groceriesSelector } from "./redux/selectors.groceries";

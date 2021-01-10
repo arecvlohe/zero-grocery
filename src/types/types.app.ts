@@ -1,8 +1,8 @@
 import * as RD from "@devexperts/remote-data-ts";
-import { definitions } from "../types/supabase";
+import { definitions } from "./types.supabase";
 
-import { GroceriesState } from "./reducer.groceries";
-import { CartState } from "./reducer.cart";
+import { GroceriesState } from "../redux/reducer.groceries";
+import { CartState } from "../redux/reducer.cart";
 
 export interface AppState {
   groceries: GroceriesState;
@@ -18,3 +18,4 @@ export interface CartItem {
   count: number;
 }
 export type Cart = Record<string, CartItem>;
+export type CartArr = Array<CartItem>;

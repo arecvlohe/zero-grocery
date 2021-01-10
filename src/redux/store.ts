@@ -8,6 +8,6 @@ import { cartReducer } from "./reducer.cart";
 export const rootEpic = combineEpics(groceriesEpic);
 
 export const rootReducer = combineReducers({
-  groceriesReducer,
-  cartReducer,
+  groceries: groceriesReducer,
+  cart: cartReducer,
 });

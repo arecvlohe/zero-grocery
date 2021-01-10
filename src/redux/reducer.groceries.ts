@@ -13,7 +13,7 @@ import {
   GET_GROCERY_REQUEST,
   GET_GROCERY_SUCCESS,
 } from "./constants.groceries";
-import { Groceries, GroceriesRD, Grocery } from "./types.appState";
+import { Groceries, GroceriesRD, Grocery } from "../types/types.app";
 
 export type GroceriesState = {
   entities: GroceriesRD;
@@ -21,7 +21,7 @@ export type GroceriesState = {
 
 export const groceriesReducer = (
   state: GroceriesState = {
-    entities: RD.pending,
+    entities: RD.initial,
   },
   action: Actions
 ): GroceriesState | undefined => {

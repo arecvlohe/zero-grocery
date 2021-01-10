@@ -1,4 +1,4 @@
-import { Grocery } from "../redux/types.appState";
+import { Grocery } from "../types/types.app";
 import { supabase } from "./supabase";
 
 export const groceriesApi = {

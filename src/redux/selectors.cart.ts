@@ -1,7 +1,7 @@
 import { createSelector } from "reselect";
 import * as fns from "fp-ts/lib/function";
 
-import { AppState } from "./types.appState";
+import { AppState } from "../types/types.app";
 
 const cartSlice = (state: AppState) => state.cart.entities;
 

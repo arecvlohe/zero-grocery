@@ -1,5 +1,5 @@
 import { ADD_GROCERY_ITEM, REMOVE_GROCERY_ITEM } from "./constants.cart";
-import { Grocery } from "./types.appState";
+import { Grocery } from "../types/types.app";
 
 export type AddGroceryItem = {
   type: typeof ADD_GROCERY_ITEM;

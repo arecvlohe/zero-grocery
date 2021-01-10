@@ -8,7 +8,7 @@ import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getGroceriesRequest } from "./redux/actions.groceries";
 import { groceriesSelector } from "./redux/selectors.groceries";
-import { CartItem, Grocery } from "./redux/types.appState";
+import { CartItem, Grocery } from "./types/types.app";
 import { addGroceryItem } from "./redux/actions.cart";
 import { cartSelector } from "./redux/selectors.cart";
 import { totalItems, totalPrice } from "./helpers.app";
@@ -30,16 +30,16 @@ function Modal({
       }
       style={{ width: 400, left: -320 }}
     >
-      <div className="text-lg border-b-2 border-gray-100 pb-2">
+      <div className="pb-2 text-lg border-b-2 border-gray-100">
         Shopping Cart
       </div>
       <div className="space-y-4">
         {cart.map((item) => {
           return (
-            <div className="grid grid-cols-3 pb-4 items-center border-b-2 border-gray-100 last:border-0">
+            <div className="grid items-center grid-cols-3 pb-4 border-b-2 border-gray-100 last:border-0">
               <img
                 src={item.data.imageUrl}
-                className="img-sm rounded-md"
+                className="rounded-md img-sm"
                 alt={item.data.name}
               />
               <div className="capitalize">{item.data.name}</div>
@@ -74,10 +74,6 @@ function App() {
 
   const animateButton = (id: string) => {
     setAnimateButtons({ [id]: "added" });
-
-    setTimeout(() => {
-      setAnimateButtons({ [id]: "initial" });
-    }, 2000);
   };
 
   const addToCart = (grocery: Grocery) => {
@@ -101,7 +97,7 @@ function App() {
           <button type="button" style={{ minWidth: 80 }} className="relative">
             Cart{" "}
             <span
-              className="bg-black text-white text-xs rounded-full p-1 absolute flex justify-center items-center"
+              className="absolute flex items-center justify-center p-1 text-xs text-white bg-black rounded-full"
               style={{ top: -10, left: 54, width: 20, height: 20 }}
             >
               {totalItems(cart)}
@@ -110,16 +106,22 @@ function App() {
           <Modal state={modalState} cart={cartItems} />
         </span>
       </header>
-      <div className="max-w-screen-lg my-0 mx-auto py-8 px-8">
+      <div className="max-w-screen-lg px-8 py-8 mx-auto my-0">
         {pipe(
           groceriesRD,
           RD.fold(
-            () => <div>Initiating...</div>,
             () => (
-              <div className="flex align-center justify-center">Loading...</div>
+              <div className="flex items-center justify-center">
+                Initiating...
+              </div>
+            ),
+            () => (
+              <div className="flex items-center justify-center">Loading...</div>
             ),
             (_err) => (
-              <div>Sorry, there was an error fetching the resources.</div>
+              <div className="flex items-center justify-center">
+                Sorry, there was an error fetching the groceries.
+              </div>
             ),
             (data) => {
               const groceries = Object.values(data);
@@ -148,15 +150,15 @@ function App() {
                             className="img"
                             alt={g.name}
                           />
-                          <div className="p-2 flex justify-between">
+                          <div className="flex justify-between p-2">
                             <div className="flex flex-col">
-                              <span className="uppercase text-gray-400 text-xs">
+                              <span className="text-xs text-gray-400 uppercase">
                                 Item Name
                               </span>
                               <span className="capitalize">{g.name}</span>{" "}
                             </div>
                             <div className="flex flex-col">
-                              <span className="uppercase text-gray-400 text-xs">
+                              <span className="text-xs text-gray-400 uppercase">
                                 Price
                               </span>
                               <span>
@@ -166,7 +168,7 @@ function App() {
                           </div>
                           <button
                             type="button"
-                            className="border-t-2 border-black text-center w-full py-2 transition-colors duration-500 ease-in-out hover:bg-black hover:text-white"
+                            className="w-full py-2 text-center transition-colors duration-500 ease-in-out border-t-2 border-black hover:bg-black hover:text-white"
                             onClick={() => {
                               addToCart(g);
                               animateButton(g.id.toString());
@@ -183,7 +185,7 @@ function App() {
               });
 
               return (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
                   {items}
                 </div>
               );

@@ -5,7 +5,7 @@ import * as fns from "fp-ts/lib/function";
 import { pipe } from "fp-ts/lib/pipeable";
 import { lookup } from "fp-ts/lib/Record";
 
-import { AppState } from "./types.appState";
+import { AppState } from "../types/types.app";
 
 const groceriesSlice = (state: AppState) => state.groceries.entities;
 const grocerySlice = (state: AppState, id: string) => {

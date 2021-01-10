@@ -6,7 +6,7 @@ import {
   GET_GROCERY_REQUEST,
   GET_GROCERY_SUCCESS,
 } from "./constants.groceries";
-import { Grocery } from "./types.appState";
+import { Grocery } from "../types/types.app";
 
 /**
  * All actions
